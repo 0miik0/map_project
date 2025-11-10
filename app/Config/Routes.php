@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Main::index');
 $routes->get('/json', 'Main::json');
+$routes->get('/obvody', 'Main::obvody');
