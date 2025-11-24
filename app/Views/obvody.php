@@ -24,17 +24,16 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
         
-        data.features.forEach(function(obvody) {
-            
-            let coords = obvody.geometry.coordinates;
-            let polygon = L.polygon(coords, {
-                color: 'blue',
-                weight: 2,
-                opacity: 1,
-                fillOpacity: 0.5
-            }).addTo(map);
-            
-        })
+        L.geoJSON(data, {
+      style: () => ({
+        color: '#3399ff',
+        weight: 1,
+        fillColor: '#66ccff',
+        fillOpacity: 0.6
+      }),
+      onEachFeature: (f, l) =>
+        l.bindPopup(f.properties.NAZEV_VO || 'Obvod')
+    }).addTo(map);
         
     
     </script>
